@@ -1,0 +1,16 @@
+{
+  "name": "projecttwo",
+  "version": "1.0.0",
+  "description": "\"Project Two\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "author": "Marco",
+  "license": "ISC",
+  "dependencies": {
+    "exrpess": "0.0.1-security",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.16.0"
+  }
+}
