@@ -9,8 +9,10 @@
   "author": "Marco",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "exrpess": "0.0.1-security",
     "mysql2": "^1.6.5",
-    "sequelize": "^5.16.0"
+    "sequelize": "^5.16.0",
+    "socket.io": "^2.2.0"
   }
 }
