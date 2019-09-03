@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 app.use(express.static(__dirname + '/client/'));
 
 const port = process.env.PORT || 3000;
-server.listen(8080);
+server.listen(port);
 console.log('Server started. Port = ' + port);
 
 let SOCKET_LIST = {};
