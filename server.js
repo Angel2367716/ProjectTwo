@@ -9,9 +9,9 @@ app.get('/', (req, res) => {
 });
 app.use(express.static(__dirname + '/client/'));
 
-const port = process.env.PORT || 3000;
-server.listen(port);
-console.log('Server started. Port = ' + port);
+const PORT = process.env.PORT || 3000;
+server.listen(PORT);
+console.log('Server started. Port = ' + PORT);
 
 let SOCKET_LIST = {};
 let PLAYER_LIST = {};
