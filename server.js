@@ -1,19 +1,18 @@
 const express = require('express');
-const http = require('http');
-const PORT = process.env.PORT || 3000;
 const app = express();
+const http = require('http');
 
 const server = http.Server(app);
 
-// app.use('/client', express.static(__dirname + '/client'));
-app.use(express.static('client'));
+app.use('/client', express.static(__dirname + '/client'));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/client/index.html');
 });
 
+const port = process.env.PORT || 3000;
 
-// server.listen(3000);
-// console.log('Server started');
+server.listen(port);
+console.log('Server started. Port: ' + port);
 
 let SOCKET_LIST = {};
 let PLAYER_LIST = {};
@@ -94,7 +93,3 @@ setInterval(function () {
         socket.emit('newPosition', pack);
     }
 }, 3000 / 75);
-
-app.listen(PORT, function(){
-    console.log("Yeah");
-});
