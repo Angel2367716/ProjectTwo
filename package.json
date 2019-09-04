@@ -4,7 +4,7 @@
   "description": "\"Project Two\"",
   "main": "server.js",
   "scripts": {
-    "test": "npm start"
+    "start": "node server.js"
   },
   "author": "Marco",
   "license": "ISC",
