@@ -1,21 +1,82 @@
+const mysql = require('mysql');
 const express = require('express');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+const path = require("path");
 const http = require('http');
 const PORT = process.env.PORT || 3000;
 const app = express();
-
+require('dotenv').config();
 const server = http.Server(app);
 
-// app.use('/client', express.static(__dirname + '/client'));
-app.use(express.static('client'));
+const connection = mysql.createConnection({
+    host: process.env.DB_HOST,
+    port: 3306,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
+})
+
+app.use(session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
+
+//parse application body as JSON
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+connection.connect()
+
+//express static allows to serve files like images, or css and javascript 
+app.use(express.static(__dirname + 'client/assets'));
+
+//ROUTES
+//=================================================
+
+//get login
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/client/index.html');
+    res.sendFile(path.join(__dirname + '/client/login.html'));
+});
+//post login
+app.post('/auth', (req, res) => {
+    const username = request.body.username;
+    const password = request.body.password;
+    if (username && password) {
+        connection.query("SELECT * FROM users WHERE username = ? AND password = ?", [username, password], function (err, response, fields) {
+            if (results.length > 0) {
+                request.session.loggedin = true;
+                request.session.username = username;
+                response.redirect('/game');
+            } else {
+                response.send("Wrong Username and/or password. Please try again!");
+            }
+            response.end();
+        });
+    } else {
+        response.send('Please enter Username and Password')
+    }
+    response.end();
 });
 
-app.use(express.static(__dirname + '/client/'));
 
-const PORT = process.env.PORT || 3000;
+app.get('/game', (req, res) => {
+    if (request.session.loggedin) {
+        response.send("Welcome " + request.session.username + "It's been a while!");
+        // res.sendFile(__dirname + '/client/index.html');
+    } else {
+        response.send("Please login to view this page!");
+    }
+    response.end();
+});
+
+//=================================================
+
 server.listen(PORT);
 console.log('Server started. Port = ' + PORT);
+
 
 
 let SOCKET_LIST = {};
