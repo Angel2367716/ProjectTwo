@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-server.listen(3000);
+// server.listen(3000);
 console.log('Server started');
 
 let SOCKET_LIST = {};
@@ -93,3 +93,7 @@ setInterval(function () {
         socket.emit('newPosition', pack);
     }
 }, 3000 / 75);
+
+app.listen(PORT, function(){
+    console.log("Yeah");
+});
