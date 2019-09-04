@@ -10,14 +10,26 @@
 
 <body>
 
-    <nav>
+
+    <div class="welcome-screen">
+
         <header class="logo">Game title, cool</header>
         <div class="login">
             <button id="login-btn"></button>
+            <button id="sign-up"></button>
         </div>
-    </nav>
+
+
+    </div>
+
+    <div class="play-mode">
+        <h1>Choose Mode</h1>
+        <button id="single-player-mode">single Player</button>
+        <button id="vs-mode">VS (in developement)</button>
+    </div>
 
     <div class="game-body">
+        <h1 id="title">Our Badass Game</h1>
 
         <div id="my-char">
             <div id="my-health">
@@ -25,7 +37,7 @@
                 <p id="my-hp">25/25</p>
             </div>
         </div>
-        
+
         <div id="opponent">
             <div id="opponent-health">
                 <span id="opponent-health-indicator"></span>
@@ -35,20 +47,18 @@
 
         <div class="action-select">
             <div id="atks">
-                <div id="atk-1">Banzai</div>
-                <div id="atk-2">Kill Kill</div>
-                <div id="atk-3">Rawr</div>
-                <div id="atk-4">Death Punch</div>
+                <button id="atk-1">Banzai</button>
+                <button id="atk-2">Kill Kill</button>
+                <button id="atk-3">Rawr</button>
+                <button id="atk-3">Die!...</button>
             </div>
         </div>
 
-    </div>
-
-    <canvas id="ctx" width="500" height="500" style="border:1px solid #000000;"></canvas>
+        <canvas id="ctx" width="500" height="500" style="border:1px solid #000000;"></canvas>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
-    <script src="/client/client.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+        <script src="/client/client.js"></script>
 
 
 </body>
