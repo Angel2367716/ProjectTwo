@@ -4,9 +4,8 @@
   "description": "\"Project Two\"",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "test" : "echo \"Error: no test specified\" && "echo \"Error: no test specified\" && exit 1"
-  },
+    "start": "node server.js"
+    },
   "author": "Marco",
   "license": "ISC",
   "dependencies": {
