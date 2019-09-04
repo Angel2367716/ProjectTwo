@@ -4,10 +4,10 @@ const http = require('http');
 
 const server = http.Server(app);
 
+app.use('/client', express.static(__dirname + '/client'));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/client/index.html');
 });
-app.use('/client', express.static(__dirname + '/client'));
 
 const PORT = process.env.PORT || 3000;
 
