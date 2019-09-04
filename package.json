@@ -4,7 +4,8 @@
   "description": "\"Project Two\"",
   "main": "server.js",
   "scripts": {
-    "test": "npm start"
+    "start": "node server.js",
+    "test" : "echo \"Error: no test specified\" && "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Marco",
   "license": "ISC",
@@ -14,5 +15,6 @@
     "mysql2": "^1.6.5",
     "sequelize": "^5.16.0",
     "socket.io": "^2.2.0"
-  }
+  },
+  "devDependencies": {}
 }
