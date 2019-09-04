@@ -4,20 +4,25 @@ const http = require('http');
 const PORT = process.env.PORT || 3000;
 const app = express();
 
+require('dotenv').config();
+
 const server = http.Server(app);
 
+//parse application body as JSON
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
 // app.use('/client', express.static(__dirname + '/client'));
-app.use(express.static('client'));
+app.use(express.static('login'));
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/client/index.html');
+    res.sendFile(__dirname + '/login/login.html');
 });
 
 app.use(express.static(__dirname + '/client/'));
 
-// const PORT = process.env.PORT || 3000;
-// server.listen(PORT);
-// console.log('Server started. Port = ' + PORT);
-// >>>>>>> c4cf35fab96366c7c0c0dcb23ba857ee1f125ac3
+server.listen(PORT);
+console.log('Server started. Port = ' + PORT);
+
 
 
 let SOCKET_LIST = {};
