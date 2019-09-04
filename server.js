@@ -1,18 +1,19 @@
 const express = require('express');
-const app = express();
 const http = require('http');
+const PORT = process.env.PORT || 3000;
+const app = express();
 
 const server = http.Server(app);
 
-app.use('/client', express.static(__dirname + '/client'));
+// app.use('/client', express.static(__dirname + '/client'));
+app.use(express.static('client'));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/client/index.html');
 });
 
-const PORT = process.env.PORT || 3000;
 
 // server.listen(3000);
-console.log('Server started');
+// console.log('Server started');
 
 let SOCKET_LIST = {};
 let PLAYER_LIST = {};
