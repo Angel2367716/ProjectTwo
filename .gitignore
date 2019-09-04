@@ -1,5 +1,8 @@
 node_modules
+<<<<<<< HEAD
 
+=======
+>>>>>>> c4cf35fab96366c7c0c0dcb23ba857ee1f125ac3
 # Logs
 logs
 *.log

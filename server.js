@@ -6,6 +6,7 @@ const http = require('http');
 
 const server = http.Server(app);
 
+// <<<<<<< HEAD
 // app.get('/', (req, res) => {
 //     res.sendFile(__dirname + '/client/index.html');
 // });
@@ -29,6 +30,16 @@ app.use(routes);
 
 server.listen(port);
 console.log('Server started. Port = ' + port);
+// =======
+// app.get('/', (req, res) => {
+//     res.sendFile(__dirname + '/client/index.html');
+// });
+// app.use(express.static(__dirname + '/client/'));
+
+// const PORT = process.env.PORT || 3000;
+// server.listen(PORT);
+// console.log('Server started. Port = ' + PORT);
+// >>>>>>> c4cf35fab96366c7c0c0dcb23ba857ee1f125ac3
 
 let SOCKET_LIST = {};
 let PLAYER_LIST = {};
