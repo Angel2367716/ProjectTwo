@@ -21,8 +21,15 @@ router.get("/", (req, res) => {
 });
 
 
-//login
-router.get("/login", (req, res)=>{res.render("please login to our game")})
+//login GET
+router.get("/login", (req, res)=>{res.render("please login to our game")});
+
+//login POST
+router.post("/login", (req, res)=>{
+    res.render("home", {
+        message: "Registration Complete"
+    });
+},
 
 //*------------------------------------------------------------------------*//
 //new user GET
