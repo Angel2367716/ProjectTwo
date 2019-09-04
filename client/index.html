@@ -9,9 +9,44 @@
 </head>
 
 <body>
-    <canvas id="ctx" width="500" height="500" style="border:1px solid #000000;"></canvas>
 
-    
+    <nav>
+        <header class="logo">Game title, cool</header>
+        <div class="login">
+            <button id="login-btn"></button>
+        </div>
+    </nav>
+
+    <div class="game-body">
+
+        <div id="my-char">
+            <div id="my-health">
+                <span id="my-health-indicator"></span>
+                <p id="my-hp">25/25</p>
+            </div>
+        </div>
+        
+        <div id="opponent">
+            <div id="opponent-health">
+                <span id="opponent-health-indicator"></span>
+                <p id="opponent-hp">32/32</p>
+            </div>
+        </div>
+
+        <div class="action-select">
+            <div id="atks">
+                <div id="atk-1">Banzai</div>
+                <div id="atk-2">Kill Kill</div>
+                <div id="atk-3">Rawr</div>
+                <div id="atk-4">Death Punch</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <canvas id="ctx" width="500" height="500" style="border:1px solid #000000;"></canvas> -->
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
     <script src="/client/client.js"></script>
 
