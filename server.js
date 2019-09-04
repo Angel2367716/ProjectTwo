@@ -1,24 +1,50 @@
-const bodyParser = require ('body-parser'); 
+const mysql = require('mysql');
 const express = require('express');
+const session = require('express-session');
+const bodyParser = require ('body-parser'); 
+const path= require ("path");
 const http = require('http');
 const PORT = process.env.PORT || 3000;
 const app = express();
-
 require('dotenv').config();
-
 const server = http.Server(app);
+
+const connection = mysql.createConnection({
+    host: process.env.DB_HOST,
+    port:3306,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database : process.env.DB_NAME
+  })
+
+  app.use(session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }));
 
 //parse application body as JSON
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-// app.use('/client', express.static(__dirname + '/client'));
-app.use(express.static('login'));
+connection.connect()
+
+//express static allows to serve files liek images or css and javascript 
+app.use(express.static(__dirname + '/client/'));
+
+//ROUTES
+//=================================================
+
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/login/login.html');
+    res.sendFile(__dirname + '/client/login.html');
 });
 
-app.use(express.static(__dirname + '/client/'));
+app.get('/game', (req, res) => {
+    res.sendFile(__dirname + '/client/index.html');
+});
+
+//=================================================
 
 server.listen(PORT);
 console.log('Server started. Port = ' + PORT);
