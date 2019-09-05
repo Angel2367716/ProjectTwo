@@ -20,8 +20,7 @@ const connection = mysql.createConnection({
 app.use(session({
     secret: 'secret',
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
+    saveUninitialized: true
 }));
 
 //parse application body as JSON
@@ -56,14 +55,14 @@ app.post('/auth', (request, response) => {
             response.end();
         });
     } else {
-        response.send('Please enter Username and/or Password')
+        response.send('Please enter Username and/or Password');
+        response.end();
     }
-    response.end();
 });
 
 app.get('/game', (request, response) => {
     if (request.session.loggedin) {
-        //response.send("Welcome " + request.session.username + "It's been a while!");
+        response.send("Welcome " + request.session.username + " it's been a while!");
          response.sendFile(path.join(__dirname + '/client/index.html'));
     } else {
         response.send("Please login to view this page!");
