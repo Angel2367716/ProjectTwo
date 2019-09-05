@@ -17,8 +17,9 @@ const connection = mysql.createConnection({
     database: process.env.DB_NAME
 })
 
+//initializes express session
 app.use(session({
-    secret: 'secret',
+    secret: process.env.COOKIE_ID,
     resave: false,
     saveUninitialized: true
 }));
@@ -62,17 +63,27 @@ app.post('/auth', (request, response) => {
 
 app.get('/game', (request, response) => {
     if (request.session.loggedin) {
-        response.send("Welcome " + request.session.username + " it's been a while!");
-         response.sendFile(path.join(__dirname + '/client/index.html'));
+        // response.send("Welcome " + request.session.username + " it's been a while!");
+        response.sendFile(path.join(__dirname + '/client/index.html'));
     } else {
-        response.send("Please login to view this page!");
+        response.write("<h1>Please login to view this page!</h1>");
+        response.end('<a href=' + '/logout' + '>Logout</a>');
     }
     response.end();
 });
 
+app.get('/logout', (request, response)=>{
+    request.session.destroy((err)=> {
+        if(err) {
+            return console.log(err);
+        }
+        response.redirect('/');
+    });
+})
+
 
 app.get('/play', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/index.html'));
+    res.sendFile(path.join(__dirname + './client/index.html'));
 });
 
 //=================================================
