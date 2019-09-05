@@ -64,7 +64,7 @@ app.post('/auth', (request, response) => {
 app.get('/game', (request, response) => {
     if (request.session.loggedin) {
         // response.send("Welcome " + request.session.username + " it's been a while!");
-        response.sendFile(path.join(__dirname + '/client/index.html'));
+       return response.sendFile(path.join(__dirname + '/client/index.html'));
     } else {
         response.write("<h1>Please login to view this page!</h1>");
         response.end('<a href=' + '/logout' + '>Logout</a>');
