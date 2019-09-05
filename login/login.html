@@ -6,40 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>User Login</title>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-    <!-- bootstrap links for icons -->
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
-        rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="loginStyle.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>User Login</h1>
-        <form method="POST" action="auth" class="form-group">
-            <p class="formInput">
-                <!-- <label for="username">Username</label> -->
-                <input type="text" name="username" class="form-control" placeholder="Username or Email">
-                <i class="icon-user icon-large"></i>
-                <p>
 
-                    <p class="formInput">
-                        <!-- <label for="password">Password</label> -->
-                        <input type="password" name="password" class="form-control" placeholder="Password">
-                        <i class="icon-key icon-large"></i>
+    <!-- <h1>User Login</h1> -->
+    <form method="POST" action="auth" class="form-group">
+        <p class="formInput">
+            <!-- <label for="username">Username</label> -->
+            <input type="text" name="username" class="form-control" placeholder="Username or Email">
+            <i class="icon-user icon-small"></i>
+        </p>
 
-                    </p>
-                    <!-- <div class="col-7"> -->
-                    <p class="sign in">
-                        <button type="submit" class="btn btn-primary" id="login-btn">Sign in</button>
-                    </p>
-                    <!-- <button type="submit" class="btn btn-primary" id="newUserbtn">Create account</button> -->
-                    <!-- </div> -->
-        </form>
-    </div>
+        <p class="formInput">
+            <!-- <label for="password">Password</label> -->
+            <input type="password" name="password" class="form-control" placeholder="Password">
+            <i class="icon-key icon-small"></i>
+
+        </p>
+        <!-- <div class="col-7"> -->
+        <p class="submit">
+            <button type="submit" class="icon-arrow-right icon-large" id="login-btn"></button>
+        </p>
+        <!-- <button type="submit" class="btn btn-primary" id="newUserbtn">Create account</button> -->
+        <!-- </div> -->
+    </form>
+
 </body>
 
 </html>
