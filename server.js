@@ -30,15 +30,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 connection.connect()
 
-//express static allows to serve files like images, or css and javascript 
-app.use(express.static(__dirname + 'client/assets'));
-
+// //express static allows to serve files like images, or css and javascript 
+// app.use(express.static(__dirname + 'client/assets'));
+app.use(express.static('login'));
 //ROUTES
 //=================================================
 
 //get login
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/login.html'));
+    res.sendFile(path.join(__dirname + '/login/login.html'));
 });
 //post login
 app.post('/auth', (req, res) => {
@@ -62,14 +62,21 @@ app.post('/auth', (req, res) => {
 });
 
 
-app.get('/game', (req, res) => {
-    if (request.session.loggedin) {
-        response.send("Welcome " + request.session.username + "It's been a while!");
-        // res.sendFile(__dirname + '/client/index.html');
-    } else {
-        response.send("Please login to view this page!");
-    }
-    response.end();
+// app.get('/game', (req, res) => {
+//     if (request.session.loggedin) {
+//         response.send("Welcome " + request.session.username + "It's been a while!");
+//         // res.sendFile(__dirname + '/client/index.html');
+//     } else {
+//         response.send("Please login to view this page!");
+//     }
+//     response.end();
+// });
+
+
+//express static allows to serve files like images, or css and javascript 
+app.use(express.static(__dirname + 'client/assets'));
+app.get('/play', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/index.html'));
 });
 
 //=================================================
