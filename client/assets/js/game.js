@@ -1,5 +1,4 @@
 
-
 // atk list
 let banzai = { atkMin: 180, atkMax: 220, acc: 65 };
 let kill = { atkMin: 320, atkMax: 420, acc: 42 };
@@ -37,9 +36,9 @@ function createAi() {
     let aiDiff = AiDifficulty(myPlayer.lvl);
     console.log(aiDiff);
 
-    ai.health = Math.floor(Math.random() * 35) + 2000 + (aiDiff * 35); 
+    ai.health = Math.floor(Math.random() * 35) + 2000 + (aiDiff * 35);
     console.log(ai);
-// to do: create other attributes when use is defined
+    // to do: create other attributes when use is defined
 };
 
 function createOpponent() {
@@ -47,11 +46,11 @@ function createOpponent() {
         createAi();
     } else {
         //to do: code for online socket setup
-        
-        
-        
-        
-        
+
+
+
+
+
     }
 };
 
@@ -63,7 +62,8 @@ function attackDmg(atk) {
         let atkDifference = atk.atkMax - atk.atkMin;
         let atkDmg = Math.floor(Math.random() * atkDifference) + atk.atkMin;
         console.log("You did " + atkDmg + " dmg");
-        // atkSuccess(atkDmg);
+
+        // atkSuccess();
     } else {
         console.log("attack missed")
     }
