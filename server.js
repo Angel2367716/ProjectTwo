@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 const express = require('express');
+<<<<<<< HEAD
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require("path");
@@ -37,6 +38,14 @@ app.use(express.static(__dirname + 'client/assets'));
 //=================================================
 
 //get login
+=======
+const app = express();
+const http = require('http');
+
+const server = http.Server(app);
+
+app.use('/client', express.static(__dirname + '/client'));
+>>>>>>> 816d7ecb4f29bc0dbda7e4d3806c25b385c6fa1e
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/login.html'));
 });
@@ -61,6 +70,7 @@ app.post('/auth', (req, res) => {
     response.end();
 });
 
+<<<<<<< HEAD
 
 app.get('/game', (req, res) => {
     if (request.session.loggedin) {
@@ -76,7 +86,12 @@ app.get('/game', (req, res) => {
 
 server.listen(PORT);
 console.log('Server started. Port = ' + PORT);
+=======
+const port = process.env.PORT || 3000;
+>>>>>>> 816d7ecb4f29bc0dbda7e4d3806c25b385c6fa1e
 
+server.listen(port);
+console.log('Server started. Port: ' + port);
 
 
 let SOCKET_LIST = {};
@@ -158,4 +173,3 @@ setInterval(function () {
         // socket.emit('newPosition', pack);
     }
 }, 3000 / 75);
-
