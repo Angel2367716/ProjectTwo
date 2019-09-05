@@ -4,7 +4,7 @@ h1 {
     text-shadow: 0 .0625rem 0 rgba(255, 255, 255, 0.8);
 }
 body {
-    background-color:lightgray ;
+    background: rgb(97, 145, 97);
 }
 
 .form-group {

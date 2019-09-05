@@ -37,15 +37,15 @@ app.use(express.static('login'));
 //=================================================
 
 //get login
-app.get('/', (req, res) => {
+app.get('/', (request, res) => {
     res.sendFile(path.join(__dirname + '/login/login.html'));
 });
 //post login
-app.post('/auth', (req, res) => {
+app.post('/auth', (request, response) => {
     const username = request.body.username;
     const password = request.body.password;
     if (username && password) {
-        connection.query("SELECT * FROM users WHERE username = ? AND password = ?", [username, password], function (err, response, fields) {
+        connection.query("SELECT * FROM users WHERE username = ? AND password = ?", [username, password], function (err, results, fields) {
             if (results.length > 0) {
                 request.session.loggedin = true;
                 request.session.username = username;
@@ -56,25 +56,22 @@ app.post('/auth', (req, res) => {
             response.end();
         });
     } else {
-        response.send('Please enter Username and Password')
+        response.send('Please enter Username and/or Password')
+    }
+    response.end();
+});
+
+app.get('/game', (request, response) => {
+    if (request.session.loggedin) {
+        //response.send("Welcome " + request.session.username + "It's been a while!");
+         response.sendFile(path.join(__dirname + '/client/index.html'));
+    } else {
+        response.send("Please login to view this page!");
     }
     response.end();
 });
 
 
-// app.get('/game', (req, res) => {
-//     if (request.session.loggedin) {
-//         response.send("Welcome " + request.session.username + "It's been a while!");
-//         // res.sendFile(__dirname + '/client/index.html');
-//     } else {
-//         response.send("Please login to view this page!");
-//     }
-//     response.end();
-// });
-
-
-//express static allows to serve files like images, or css and javascript 
-app.use(express.static(__dirname + 'client/assets'));
 app.get('/play', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/index.html'));
 });
