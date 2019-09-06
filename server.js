@@ -1,3 +1,4 @@
+const mysql = require('mysql');
 const express = require('express');
 const app = express();
 const http = require('http');
@@ -6,13 +7,34 @@ const server = http.Server(app);
 
 app.use('/client', express.static(__dirname + '/client'));
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/client/index.html');
+    res.sendFile(path.join(__dirname + '/client/login.html'));
+});
+//post login
+app.post('/auth', (req, res) => {
+    const username = request.body.username;
+    const password = request.body.password;
+    if (username && password) {
+        connection.query("SELECT * FROM users WHERE username = ? AND password = ?", [username, password], function (err, response, fields) {
+            if (results.length > 0) {
+                request.session.loggedin = true;
+                request.session.username = username;
+                response.redirect('/game');
+            } else {
+                response.send("Wrong Username and/or password. Please try again!");
+            }
+            response.end();
+        });
+    } else {
+        response.send('Please enter Username and Password')
+    }
+    response.end();
 });
 
 const port = process.env.PORT || 3000;
 
 server.listen(port);
 console.log('Server started. Port: ' + port);
+
 
 let SOCKET_LIST = {};
 let PLAYER_LIST = {};
