@@ -4,7 +4,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require("path");
 const http = require('http');
-const PORT = process.env.PORT || 3000;
+const port = process.env.port || 3000;
 const app = express();
 require('dotenv').config();
 const server = http.Server(app);
@@ -88,8 +88,8 @@ app.get('/play', (req, res) => {
 
 //=================================================
 
-server.listen(PORT);
-console.log('Server started. Port = ' + PORT);
+server.listen(port);
+console.log('Server started. port = ' + port);
 
 
 
