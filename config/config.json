@@ -1,8 +1,13 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": null,
     "database": "database_development",
+=======
+    "password": "root",
+    "database": "project_game_DB",
+>>>>>>> 42e8a64f315cc2e5d56ac0501dc562054ad09bea
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false

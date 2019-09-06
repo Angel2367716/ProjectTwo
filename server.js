@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const express = require('express');
 <<<<<<< HEAD
+<<<<<<< HEAD
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require("path");
@@ -39,13 +40,18 @@ app.use(express.static(__dirname + 'client/assets'));
 
 //get login
 =======
+=======
+>>>>>>> 42e8a64f315cc2e5d56ac0501dc562054ad09bea
 const app = express();
 const http = require('http');
 
 const server = http.Server(app);
 
 app.use('/client', express.static(__dirname + '/client'));
+<<<<<<< HEAD
 >>>>>>> 816d7ecb4f29bc0dbda7e4d3806c25b385c6fa1e
+=======
+>>>>>>> 42e8a64f315cc2e5d56ac0501dc562054ad09bea
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/login.html'));
 });
@@ -71,6 +77,7 @@ app.post('/auth', (req, res) => {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 app.get('/game', (req, res) => {
     if (request.session.loggedin) {
@@ -89,6 +96,9 @@ console.log('Server started. Port = ' + PORT);
 =======
 const port = process.env.PORT || 3000;
 >>>>>>> 816d7ecb4f29bc0dbda7e4d3806c25b385c6fa1e
+=======
+const port = process.env.PORT || 3000;
+>>>>>>> 42e8a64f315cc2e5d56ac0501dc562054ad09bea
 
 server.listen(port);
 console.log('Server started. Port: ' + port);
