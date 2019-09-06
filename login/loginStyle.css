@@ -118,7 +118,7 @@ body {
     background: #ffffff;
     
     /* Other masks trick */
-    box-shadow: 0 62px white, -32px 31px white;
+    /* box-shadow: 0 62px white, -32px 31px white; */
 }
 
 .form-group button {

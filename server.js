@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 connection.connect()
 
 // //express static allows to serve files like images, or css and javascript 
-// app.use(express.static(__dirname + 'client/assets'));
+app.use(express.static(__dirname + '/client'));
 app.use(express.static('login'));
 //ROUTES
 //=================================================
