@@ -1,5 +1,7 @@
 const mysql = require('mysql');
 const express = require('express');
+<<<<<<< HEAD
+<<<<<<< HEAD
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require("path");
@@ -37,8 +39,26 @@ app.use(express.static('login'));
 //=================================================
 
 //get login
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 42e8a64f315cc2e5d56ac0501dc562054ad09bea
+const app = express();
+const http = require('http');
+
+const server = http.Server(app);
+
+app.use('/client', express.static(__dirname + '/client'));
+<<<<<<< HEAD
+>>>>>>> 816d7ecb4f29bc0dbda7e4d3806c25b385c6fa1e
+=======
+>>>>>>> 42e8a64f315cc2e5d56ac0501dc562054ad09bea
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/login.html'));
+=======
 app.get('/', (request, res) => {
     res.sendFile(path.join(__dirname + '/login/login.html'));
+>>>>>>> 0944c6c5f50fa50e9fa1b8c44d5acaa9cbcee125
 });
 //post login
 app.post('/auth', (request, response) => {
@@ -61,7 +81,14 @@ app.post('/auth', (request, response) => {
     }
 });
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+app.get('/game', (req, res) => {
+=======
 app.get('/game', (request, response) => {
+>>>>>>> 0944c6c5f50fa50e9fa1b8c44d5acaa9cbcee125
     if (request.session.loggedin) {
         // response.send("Welcome " + request.session.username + " it's been a while!");
        return response.sendFile(path.join(__dirname + '/client/index.html'));
@@ -88,9 +115,22 @@ app.get('/play', (req, res) => {
 
 //=================================================
 
+<<<<<<< HEAD
+server.listen(PORT);
+console.log('Server started. Port = ' + PORT);
+=======
+const port = process.env.PORT || 3000;
+>>>>>>> 816d7ecb4f29bc0dbda7e4d3806c25b385c6fa1e
+=======
+const port = process.env.PORT || 3000;
+>>>>>>> 42e8a64f315cc2e5d56ac0501dc562054ad09bea
+=======
 server.listen(port);
 console.log('Server started. PORT = ' + port);
+>>>>>>> 0944c6c5f50fa50e9fa1b8c44d5acaa9cbcee125
 
+server.listen(port);
+console.log('Server started. Port: ' + port);
 
 
 let SOCKET_LIST = {};
@@ -172,4 +212,3 @@ setInterval(function () {
         // socket.emit('newPosition', pack);
     }
 }, 3000 / 75);
-

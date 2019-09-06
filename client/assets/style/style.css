@@ -1,3 +1,67 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
 body {
+<<<<<<< HEAD
     background-color: white;
+=======
+    background-color: #114F2F;
+}
+
+/* //////////////////////////// */
+
+/*      Welcome Screen    */
+
+/* //////////////////////////// */
+
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    opacity: 1;
+    position: absolute;
+    background-color: rgb(156, 158, 154);
+    width: 82vw;
+    height: 88vh;
+    margin: 6vh 8vw;
+    border-radius: 4.5px;
+    transition: .35s;
+}
+
+.welcome-screen .logo {
+    width: fit-content;
+    margin: 2% auto;
+    padding: .65rem .55rem;
+    text-align: center;
+    color: rgb(228, 200, 76);
+    background-color: #99261F;
+    background: linear-gradient(#99261F 5%, rgb(197, 62, 21) 95% , #99261F);
+    border-radius: 4px;
+}
+
+
+/* //////////////////////////// */
+
+/*      Game Body    */
+
+/* //////////////////////////// */
+
+.game-body {
+    opacity: 0;
+}
+
+/* //////////////////////////// */
+
+/*      Viewability    */
+
+/* //////////////////////////// */
+
+#hidden {
+    opacity: 0;
+    transition: .25s;
+>>>>>>> 2e9a32a6caa1421fe6c2a4dd629170202eace024
 }
