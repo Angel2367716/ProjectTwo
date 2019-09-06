@@ -89,7 +89,7 @@ app.get('/play', (req, res) => {
 //=================================================
 
 server.listen(port);
-console.log('Server started. PORT = ' + PORT);
+console.log('Server started. PORT = ' + port);
 
 
 
