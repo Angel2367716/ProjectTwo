@@ -1,3 +1,4 @@
+
 window.onload = animateScript();
 window.onload = animateScript2();
 
@@ -8,7 +9,7 @@ window.onload = animateScript2();
 
 var tID; //we will use this variable to clear the setInterval()
 function animateScript() {
-var    position = 112.25; //start position for the image slicer
+    var    position = 112.25; //start position for the image slicer
 const  interval = 100; //100 ms of interval for the setInterval()
 tID = setInterval ( () => {
 document.getElementById("image").style.backgroundPosition = 
@@ -44,5 +45,9 @@ else
 , interval ); //end of setInterval
 } //end of animateScript()
 
+function atk1(){
+    document.getElementById('opponent-health').value() - 100;
+}
 
+        
 
