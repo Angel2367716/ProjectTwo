@@ -1,23 +1,14 @@
 const mysql = require('mysql');
 const express = require('express');
-<<<<<<< HEAD
-<<<<<<< HEAD
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require("path");
 const http = require('http');
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 require('dotenv').config();
 const server = http.Server(app);
 
-const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    PORT: 3306,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-})
 
 //initializes express session
 app.use(session({
@@ -26,189 +17,120 @@ app.use(session({
     saveUninitialized: true
 }));
 
-//parse application body as JSON
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// Requiring our models for syncing
+const db = require("./models");
 
-connection.connect()
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// //express static allows to serve files like images, or css and javascript 
+//express static allows to serve files like images, or css and javascript 
 app.use(express.static(__dirname + '/client'));
-app.use(express.static('login'));
-//ROUTES
-//=================================================
 
-//get login
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 42e8a64f315cc2e5d56ac0501dc562054ad09bea
-const app = express();
-const http = require('http');
 
-const server = http.Server(app);
+//=======================================ROUTES======================================================
 
-app.use('/client', express.static(__dirname + '/client'));
-<<<<<<< HEAD
->>>>>>> 816d7ecb4f29bc0dbda7e4d3806c25b385c6fa1e
-=======
->>>>>>> 42e8a64f315cc2e5d56ac0501dc562054ad09bea
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/login.html'));
-=======
-app.get('/', (request, res) => {
-    res.sendFile(path.join(__dirname + '/login/login.html'));
->>>>>>> 0944c6c5f50fa50e9fa1b8c44d5acaa9cbcee125
-});
-//post login
-app.post('/auth', (request, response) => {
-    const username = request.body.username;
-    const password = request.body.password;
-    if (username && password) {
-        connection.query("SELECT * FROM users WHERE username = ? AND password = ?", [username, password], function (err, results, fields) {
-            if (results.length > 0) {
-                request.session.loggedin = true;
-                request.session.username = username;
-                response.redirect('/game');
-            } else {
-                response.send("Wrong Username and/or password. Please try again!");
-            }
-            response.end();
-        });
-    } else {
-        response.send('Please enter Username and/or Password');
-        response.end();
-    }
-});
+// Routes
+// =============================================================
+require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-app.get('/game', (req, res) => {
-=======
-app.get('/game', (request, response) => {
->>>>>>> 0944c6c5f50fa50e9fa1b8c44d5acaa9cbcee125
-    if (request.session.loggedin) {
-        // response.send("Welcome " + request.session.username + " it's been a while!");
-       return response.sendFile(path.join(__dirname + '/client/index.html'));
-    } else {
-        response.write("<h1>Please login to view this page!</h1>");
-        response.end('<a href=' + '/logout' + '>Logout</a>');
-    }
-    response.end();
-});
-
-app.get('/logout', (request, response)=>{
-    request.session.destroy((err)=> {
-        if(err) {
-            return console.log(err);
-        }
-        response.redirect('/');
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: true }).then(function() {
+    app.listen(PORT, function() {
+      console.log("App listening on PORT " + PORT);
     });
-})
+  });
+// //==================================================================================================
+
+//     let SOCKET_LIST = {};
+//     let PLAYER_LIST = {};
+
+// //==================================================================================================
 
 
-app.get('/play', (req, res) => {
-    res.sendFile(path.join(__dirname + './client/index.html'));
-});
+//     // let Player = function (id) {
+//     //     let self = {
+//     //         x: 250,
+//     //         y: 250,
+//     //         id: id,
+//     //         number: "" + Math.floor(10 * Math.random()),
+//     //         pressingRight: false,
+//     //         pressingLeft: false,
+//     //         pressingUp: false,
+//     //         pressingDown: false,
+//     //         maxSpd:10,
+//     //     }
+//     //     self.updatePosition = function() {
+//     //         if(self.pressingRight){
+//     //             self.x += self.maxSpd;
+//     //         }
+//     //         else if(self.pressingLeft){
+//     //             self.x -= self.maxSpd;
+//     //         }
+//     //         else if(self.pressingUp){
+//     //             self.y -= self.maxSpd;
+//     //         }
+//     //         else if(self.pressingDown){
+//     //             self.y += self.maxSpd;
+//     //         }
+//     //     }
+//     //     return self;
+//     // }
 
-//=================================================
 
-<<<<<<< HEAD
-server.listen(PORT);
-console.log('Server started. Port = ' + PORT);
-=======
-const port = process.env.PORT || 3000;
->>>>>>> 816d7ecb4f29bc0dbda7e4d3806c25b385c6fa1e
-=======
-const port = process.env.PORT || 3000;
->>>>>>> 42e8a64f315cc2e5d56ac0501dc562054ad09bea
-=======
-server.listen(port);
-console.log('Server started. PORT = ' + port);
->>>>>>> 0944c6c5f50fa50e9fa1b8c44d5acaa9cbcee125
-
-server.listen(port);
-console.log('Server started. Port: ' + port);
+// //==================================================================================================
 
 
-let SOCKET_LIST = {};
-let PLAYER_LIST = {};
+//     const io = require('socket.io')(server, {});
 
-// let Player = function (id) {
-//     let self = {
-//         x: 250,
-//         y: 250,
-//         id: id,
-//         number: "" + Math.floor(10 * Math.random()),
-//         pressingRight: false,
-//         pressingLeft: false,
-//         pressingUp: false,
-//         pressingDown: false,
-//         maxSpd:10,
-//     }
-//     self.updatePosition = function() {
-//         if(self.pressingRight){
-//             self.x += self.maxSpd;
+
+// //==================================================================================================
+
+//     io.on('connection', function (socket) {
+//         console.log('Socket connection. Id = ' + socket.id);
+//         socket.id = Math.random();
+//         SOCKET_LIST[socket.id] = socket;
+
+//         let player = Player(socket.id);
+//         PLAYER_LIST[socket.id] = player;
+
+//         socket.on('disconnect', function () {
+//             delete SOCKET_LIST[socket.id];
+//             delete PLAYER_LIST[socket.id];
+//         });
+
+//         // socket.on('keypress', (data) => {
+//         //     if(data.inputId=== 'right'){
+//         //         player.pressingRight = data.state;
+//         //     }
+//         //     else if(data.inputId=== 'left'){
+//         //         player.pressingLeft = data.state;
+//         //     }
+//         //     else if(data.inputId=== 'up'){
+//         //         player.pressingUp = data.state;
+//         //     }
+//         //     else if(data.inputId=== 'down'){
+//         //         player.pressingDown = data.state;
+//         //     }
+//         // });
+//     });
+// //==================================================================================================
+//     setInterval(function () {
+//         let pack = [];
+//         for (let i in PLAYER_LIST) {
+//             let player = PLAYER_LIST[i];
+//             // player.updatePosition();
+//             pack.push({
+//                 x: player.x,
+//                 y: player.y,
+//                 number: player.number
+//             });
 //         }
-//         else if(self.pressingLeft){
-//             self.x -= self.maxSpd;
+//         for (let i in SOCKET_LIST) {
+//             let socket = SOCKET_LIST[i];
+//             // socket.emit('newPosition', pack);
 //         }
-//         else if(self.pressingUp){
-//             self.y -= self.maxSpd;
-//         }
-//         else if(self.pressingDown){
-//             self.y += self.maxSpd;
-//         }
-//     }
-//     return self;
-// }
-
-
-const io = require('socket.io')(server, {});
-io.on('connection', function (socket) {
-    console.log('Socket connection. Id = ' + socket.id);
-    socket.id = Math.random();
-    SOCKET_LIST[socket.id] = socket;
-
-    let player = Player(socket.id);
-    PLAYER_LIST[socket.id] = player;
-
-    socket.on('disconnect', function () {
-        delete SOCKET_LIST[socket.id];
-        delete PLAYER_LIST[socket.id];
-    });
-
-    // socket.on('keypress', (data) => {
-    //     if(data.inputId=== 'right'){
-    //         player.pressingRight = data.state;
-    //     }
-    //     else if(data.inputId=== 'left'){
-    //         player.pressingLeft = data.state;
-    //     }
-    //     else if(data.inputId=== 'up'){
-    //         player.pressingUp = data.state;
-    //     }
-    //     else if(data.inputId=== 'down'){
-    //         player.pressingDown = data.state;
-    //     }
-    // });
-});
-
-setInterval(function () {
-    let pack = [];
-    for (let i in PLAYER_LIST) {
-        let player = PLAYER_LIST[i];
-        // player.updatePosition();
-        pack.push({
-            x: player.x,
-            y: player.y,
-            number: player.number
-        });
-    }
-    for (let i in SOCKET_LIST) {
-        let socket = SOCKET_LIST[i];
-        // socket.emit('newPosition', pack);
-    }
-}, 3000 / 75);
+//     }, 3000 / 75)

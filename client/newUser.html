@@ -9,7 +9,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="loginStyle.css">
+    <link rel="stylesheet" href="../client/assets/style/loginStyle.css">
 </head>
 
 <body>
@@ -17,7 +17,16 @@
     <!-- <h1>User Login</h1> -->
     <form method="POST" action="auth" class="form-group">
         <p class="formInput">
-            <!-- <label for="username">Username</label> -->
+            <input type="text" name="firstName" class="form-control" placeholder="firstName">
+        </p>
+        <p class="formInput">
+            <input type="text" name="lastName" class="form-control" placeholder="lastName">
+        </p>
+        <p class="formInput">
+            <input type="text" name="email" class="form-control" placeholder="email">
+            
+        </p>
+        <p class="formInput">
             <input type="text" name="username" class="form-control" placeholder="Username">
             <i class="icon-user icon-small"></i>
         </p>

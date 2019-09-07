@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style/style.css" type="text/css">
+</head>
+
+<body>
+
+
+    <div class="welcome-screen">
+
+        <header class="logo"><h1>Game title, cool</h1></header>
+        
+        <div class="logout">
+            <button id="logout">Log out</button>
+        </div>
+
+        <div class="play-mode" id="hidden">
+            <h1>Choose Mode</h1>
+            <button id="single-player-mode">single Player</button>
+            <button id="vs-mode">VS Mode(in developement)</button>
+        </div>
+
+    </div>
+
+
+
+    <div class="game-body">
+        <h1 id="title">Our Badass Game</h1>
+
+        <div id="my-char">
+            <div id="my-health">
+                <span id="my-health-indicator"></span>
+                <p id="my-hp">25/25</p>
+            </div>
+        </div>
+
+        <div id="opponent">
+            <div id="opponent-health">
+                <span id="opponent-health-indicator"></span>
+                <p id="opponent-hp">32/32</p>
+            </div>
+        </div>
+
+        <div class="action-select">
+            <div id="atks">
+                <button id="atk-1">Die!...</button>
+                <button id="atk-2">Kill Kill</button>
+                <button id="atk-3">Rawr</button>
+                <button id="atk-3">Banzai</button>
+            </div>
+        </div>
+
+        <canvas id="ctx" width="500" height="500" style="border:1px solid #000000;"></canvas>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+        <script src="/client/assets/js/client.js"></script>
+        <script src="/client/assets/js/game.js"></script>
+
+
+</body>
+
+</html>

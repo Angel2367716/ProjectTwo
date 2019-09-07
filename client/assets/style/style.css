@@ -6,9 +6,6 @@
 }
 
 body {
-<<<<<<< HEAD
-    background-color: white;
-=======
     background-color: #114F2F;
 }
 
@@ -63,5 +60,4 @@ body {
 #hidden {
     opacity: 0;
     transition: .25s;
->>>>>>> 2e9a32a6caa1421fe6c2a4dd629170202eace024
 }
