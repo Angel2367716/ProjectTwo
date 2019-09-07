@@ -118,12 +118,12 @@ function nextPlayerTurn() {
 // effects player physical view
 
 function atkAnimation() {
-    if 
-}
-
-enemyTurnAnimation(){
     
 }
+
+// enemyTurnAnimation(){
+    
+// }
 
 // starts game
 
