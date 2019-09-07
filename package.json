@@ -4,13 +4,21 @@
   "description": "\"Project Two\"",
   "main": "server.js",
   "scripts": {
-    "test": "npm start"
+    "start": "node server.js"
   },
-  "author": "Marco",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "exrpess": "0.0.1-security",
+    "bootstrap": "^4.3.1",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.16.2",
+    "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
-    "sequelize": "^5.16.0"
+    "node": "^12.9.1",
+    "path": "^0.12.7",
+    "sequelize": "^5.16.0",
+    "socket.io": "^2.2.0"
   }
 }

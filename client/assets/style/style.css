@@ -1,0 +1,162 @@
+/* Bar 1
+#progress-bar1{
+    float: left;
+    position: relative;
+    width: 300px;
+    height: 40px;
+    border: 1px solid black;
+}
+
+#progress-bar1-fill{
+    height: 100%;
+    background-color: #59ea63;
+    transition: width 0.5s;
+}
+
+#progress-bar1-value{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+
+/* Bar 2  */
+/* 
+#progress-bar2{
+    float: right;
+    position: relative;
+    width: 300px;
+    height: 40px;
+    border: 1px solid black;
+}
+
+#progress-bar2-fill{
+    height: 100%;
+    background-color: #59ea63;
+    transition: width 0.5s;
+}
+
+#progress-bar2-value{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+} */ 
+
+#my-health{
+    float: left;
+    background-color: green;
+    border: 2px solid black;
+    height: 50px;
+    width: 40%;
+}
+
+#opponent-health{
+    float: right;
+    background-color: green;
+    border: 2px solid black;
+    height: 50px;
+    width: 40%;
+}
+
+/* Sprite */
+#demo{
+    float: left;
+    position: static;
+    margin-top: 20%; 
+}
+
+#image {
+    position: static;
+    height: 127px;
+    width: 112.25px;
+  background: 
+  url('https://i.ibb.co/Vq06MZp/978-1-4302-6605-1-7-Fig2-HTML.jpg') 0px 0px;
+  }
+
+  /* Sprite2 */
+
+  #demo2{
+    float: right;
+    position: static;
+    margin-top: 20%; 
+}
+
+#image2 {
+    position: static;
+    height: 127px;
+    width: 112.25px;
+  background: 
+  url('https://i.ibb.co/Vq06MZp/978-1-4302-6605-1-7-Fig2-HTML.jpg') 0px 127px;
+  }
+
+
+
+#abilitycon{
+    clear: both;
+    float: left;
+    margin-top: 100px;
+    background-color: lightskyblue;
+    width: 50%;
+    height: 200px;
+    border: 3px solid yellow;
+}
+
+#atk1{
+    float: left;
+    background-color: white;
+    width: 40%;
+    height: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: 2px solid grey;
+}
+
+#atk2{
+    float: right;
+    background-color: white;
+    width: 40%;
+    height: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: 2px solid grey;
+}
+  
+#atk3{
+    clear: both;
+    float: left;
+    background-color: white;
+    width: 40%;
+    height: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border: 2px solid grey;
+}
+
+#atk4{
+    
+    float: right;
+    background-color: white;
+    width: 40%;
+    height: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border: 2px solid grey;
+}
